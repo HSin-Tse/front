@@ -22,10 +22,10 @@
           Sign in
         </el-button>
       </el-form-item>
-      <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        </span> password: admin</span>
-      </div>
+      <!--<div class="tips">-->
+        <!--<span style="margin-right:20px;">username: admin</span>-->
+        <!--</span> password: admin</span>-->
+      <!--</div>-->
     </el-form>
   </div>
 </template>
@@ -46,7 +46,11 @@ export default {
     const validatePass = (rule, value, callback) => {
       if (value.length < 5) {
         callback(new Error('密码不能小于5位'))
-      } else {
+      }else if(value != 'iloveajmide'){
+        callback(new Error(value))
+
+      }
+      else {
         callback()
       }
     }
